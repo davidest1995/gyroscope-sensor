@@ -238,17 +238,12 @@ for col in outlier_colunms:
 # --------------------------------------------------------------
 
 df
-
-
 # Test on single column
 
 col = "gyr_z"
 dataset = mark_outliers_chauvenet(df, col=col)
 dataset[dataset["gyr_z_outlier"]]
 dataset.loc[dataset["gyr_z_outlier"], "gyr_z" ] =np.nan
-
-
-
 
 # Create a loop
 outliers_removed_df = df.copy()
@@ -268,6 +263,4 @@ outliers_removed_df.info()
 # --------------------------------------------------------------
 # Export new dataframe
 # --------------------------------------------------------------
-
-
 outliers_removed_df.to_pickle("../../data/interim/02_outliers_removed_chauvenets.pkl")
